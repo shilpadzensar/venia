@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shilpadzensar/venia/static/css/main.02893eff.css",
-    "main.js": "/shilpadzensar/venia/static/js/main.886e38fa.js",
+    "main.js": "/shilpadzensar/venia/static/js/main.bbecdab9.js",
     "static/media/3.jpg": "/shilpadzensar/venia/static/media/3.e45fdf104d09797cec3e.jpg",
     "static/media/2.jpg": "/shilpadzensar/venia/static/media/2.bedf8dfaf07654040e8c.jpg",
     "static/media/banner.webp": "/shilpadzensar/venia/static/media/banner.3ccffd32b7275689cbab.webp",
@@ -28,10 +28,10 @@
     "static/media/edit-2.svg": "/shilpadzensar/venia/static/media/edit-2.d86fb5c57c99ad0d8312adf90283ac77.svg",
     "static/media/facebook.svg": "/shilpadzensar/venia/static/media/facebook.b5b54c5572636785078aa70b8bdffe26.svg",
     "main.02893eff.css.map": "/shilpadzensar/venia/static/css/main.02893eff.css.map",
-    "main.886e38fa.js.map": "/shilpadzensar/venia/static/js/main.886e38fa.js.map"
+    "main.bbecdab9.js.map": "/shilpadzensar/venia/static/js/main.bbecdab9.js.map"
   },
   "entrypoints": [
     "static/css/main.02893eff.css",
-    "static/js/main.886e38fa.js"
+    "static/js/main.bbecdab9.js"
   ]
 }
