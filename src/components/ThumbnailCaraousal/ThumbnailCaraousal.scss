@@ -1,0 +1,44 @@
+.thumbnail-caraousal-wrapper {
+    position: relative;
+
+    .thumbnail-caraousal-column {
+        margin-bottom: 4px;
+        img {
+           height: 105px; 
+           width: 100%;
+           vertical-align: middle;          
+        }
+    }
+
+    
+  .next-slide {
+    padding: 25px;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .thumbnail {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  
+  .active,
+  .thumbnail:hover {
+    opacity: 1;
+  }
+}
+
+.slide-image 
+{
+    display: none;
+    img {
+    height: 680px;
+    width: 100%;
+  }
+} 
+   
+  

@@ -1,0 +1,109 @@
+@import '../../styles/base/variable';
+@import '../../styles/base/mixins';
+
+.header-wrapper {
+    
+    header {
+        padding: 18px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        .hamburger, .search, .cart{
+            width: 18px;
+            height: 18px;
+        }
+
+        .logo{
+            height: 18px;
+            margin: auto;
+        }
+
+        .cart{
+            margin-left: 15px;
+        }
+        
+        .nav-links {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            margin: 130px 0 102px;
+            display: none;
+
+            li {
+                font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+                letter-spacing: var(--unnamed-character-spacing-0);
+                text-align: left;
+                font: normal normal 600 16px/24px Muli;
+                letter-spacing: 0px;
+                color: #1B252C;
+                opacity: 1;
+                margin-bottom: 45px;
+                font-size: 24px;
+
+                a {
+                    text-decoration: none;
+                    color: $color_oxford_blue;
+                }
+            }
+        }
+
+        span {
+            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+            letter-spacing: var(--unnamed-character-spacing-0);
+            text-align: right;
+            letter-spacing: 0px;
+            color: $color_bg1;
+        }
+       
+    }
+}
+
+
+@include desktop {
+
+    .header-wrapper {
+        header {
+            padding: 30px 0;
+            justify-content: flex-start;
+
+            .hamburger {
+                display: none;
+            }
+            .logo{
+                margin: 0;
+            }
+            .cart, .sign_in{
+                margin-left: 24px;
+            }
+
+            span{
+                img {
+                    margin-right: 8px;
+                }
+            }
+
+           
+            .nav-links {
+                display: block;
+                flex-direction: row;
+                margin: auto;
+                text-align: center;
+
+                li {
+                    margin: 0 16px;
+                    list-style: outside none none;
+                    display: inline-block;
+                    font-size: 16px;
+                }
+
+            }
+
+        }
+
+
+    }
+
+
+}

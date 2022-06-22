@@ -1,0 +1,61 @@
+@import '../../styles/base/mixins';
+
+.product-item {
+    margin-bottom: 21px;
+
+    img {
+        height: 196px;
+        width: 100%;
+    }
+    
+    &:nth-last-child(2n){
+        padding-right: 21px;
+    }
+
+    .title-section {
+
+        h4 {
+            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 18px/var(--unnamed-line-spacing-20) var(--unnamed-font-family-muli);
+            letter-spacing: var(--unnamed-character-spacing-0);
+            color: var(--unnamed-color-172026);
+            text-align: left;
+            padding-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        p{
+            font: var(--unnamed-font-style-normal) normal 600 var(--unnamed-font-size-16)/var(--unnamed-line-spacing-20) var(--unnamed-font-family-muli);
+            letter-spacing: var(--unnamed-character-spacing-0);
+            color: var(--unnamed-color-172026);
+            text-align: left;
+            letter-spacing: 0px;
+            opacity: 1;
+            padding-bottom: 7px;
+        }
+
+        button{
+            background: url("./images/heart.svg");
+            height: 26px;
+            width: 26px;
+            background-repeat: no-repeat;
+            border: 0;
+        }       
+    }
+}
+
+@include desktop {
+
+    .product-item {
+   
+        img {
+            height: 382px;
+        }
+
+        &:not(:nth-last-child(3n)){
+            padding-right: 32px;
+        }
+    }
+
+}

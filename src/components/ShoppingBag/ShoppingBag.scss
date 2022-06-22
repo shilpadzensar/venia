@@ -1,0 +1,166 @@
+@import '../../styles/base/variable';
+@import '../../styles/base/mixins';
+
+.shopping-bag-wrapper {
+    h1 {
+        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-48)/var(--unnamed-line-spacing-45) var(--unnamed-font-family-source-serif-pro);
+        letter-spacing: var(--unnamed-character-spacing-0);
+        color: var(--unnamed-color-172026);
+        text-align: center;
+        padding-bottom: 50px;
+        font-size: 36px;
+    }
+
+    .left-col {
+        section {
+
+            .prod-details {
+                display: flex;
+
+                div {
+                    width: 100%;
+                    padding-left: 16px;
+                }
+
+                img {
+                    width: 166px;
+                    height: 199px;
+                }
+
+                h5 {
+                    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-25) var(--unnamed-font-family-muli);
+                    letter-spacing: var(--unnamed-character-spacing-0);
+                    color: var(--unnamed-color-172026);
+                    text-align: left;
+                    font-size: 18px;
+                }
+
+                p {
+                    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+                    letter-spacing: var(--unnamed-character-spacing-0);
+                    color: var(--unnamed-color-172026);
+                }
+
+            }
+
+            .prod-quantity {
+                display: flex;
+
+                section {
+                    padding-top: 16px;
+                }
+
+                li {
+                    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) 12px/14px var(--unnamed-font-family-muli);
+                    letter-spacing: var(--unnamed-character-spacing-0);
+                    color: var(--unnamed-color-172026);
+                    text-align: left;
+                    margin-bottom: 16px;
+                    list-style: none;
+
+                    img {
+                        vertical-align: bottom;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .right-col {
+        background: var(--white) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 0px 8px #0000000D;
+        border: 1px solid #D1D3D6;
+        border-radius: 2px;
+        opacity: 1;
+        padding: 32px;
+
+
+        h5 {
+            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-20)/var(--unnamed-line-spacing-25) var(--unnamed-font-family-muli);
+            letter-spacing: var(--unnamed-character-spacing-0);
+            color: var(--unnamed-color-172026);
+            text-align: left;
+            padding-bottom: 24px;
+
+        }
+
+        .summary {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+
+            div {
+                font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+                letter-spacing: var(--unnamed-character-spacing-0);
+                color: var(--unnamed-color-172026);
+                flex: 50%;
+
+            }
+
+            .amount {
+                text-align: right;
+            }
+
+            .strong {
+                font-weight: bolder;
+            }
+
+        }
+
+        .primary-paypal-btn{
+            background-image: url('./images/pay-pal.png');
+            border: none;
+            background-repeat: no-repeat;
+            width: 245px;
+            height: 38px;
+        }
+
+        .primary-btn {
+            width: 247px;
+            height: 40px;
+            background: var(--primary-brand) 0% 0% no-repeat padding-box;
+            border-radius: 28px;
+            border: none;
+            color: #FFF;
+            text-transform: uppercase;
+        }
+
+        button {
+            margin: 24px 0 12px;
+        }
+
+    }
+
+}
+
+
+
+@include desktop {
+    .shopping-bag-wrapper {
+        h1 {
+            font-size: 48px;
+            padding-bottom: 58px;
+
+        }
+
+
+        .left-col {
+            section {
+                .prod-details {
+                    h5 {
+                        font-size: 20px;
+                    }
+                }
+
+                .prod-quantity {
+                    section {
+                        padding-top: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.cdnfonts.com/css/muli');
+
+@import 'framework/_aem-grid-12';
+@import './base/_desktop';
+@import 'base/_variable';
+@import 'base/_breakpoints';
+@import 'base/_mixins';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+.container {
+    padding: 0 16px;
+}
+
+.show-xs {
+    display: block;
+}
+
+.show-lg {
+    display: none;
+}
+
+
+@include desktop {
+    .container {
+        padding: 0 136px;
+    }
+
+    .show-xs {
+        display: none;
+    }
+
+    .show-lg {
+        display: block;
+    }
+}                            
