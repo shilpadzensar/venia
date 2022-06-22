@@ -1,5 +1,4 @@
 import React from "react";
-//import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import HomePage from "./pages/HomePage";
@@ -11,27 +10,14 @@ const Router = () => (
     <BrowserRouter>
         <App>
             <Routes>
-                <Route path="/" element={
-                    <HomePage />
-                } />
+                <Route path="venia" element={<HomePage />} />
 
-                <Route path="/product/:productId" element={
-                    <ProductPage>
+                <Route path="/product/:productId" element={<ProductPage />} />
 
-                    </ProductPage>
-                } />
-
-                <Route path="/cart" element={
-                    <CartPage>
-
-                    </CartPage>
-                } />
+                <Route path="/cart" element={<CartPage />} />
             </Routes>
         </App>
     </BrowserRouter>
 );
-
-
-
 
 export default Router;

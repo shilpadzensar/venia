@@ -11,7 +11,7 @@ import Edit from './images/edit-2.svg';
 import Trash from './images/trash-2.svg';
 import Heart from './images/heart.svg';
 
-const Product = () => {
+const ShoppingBag = () => {
 
     let cart = useSelector((state) => state.cart);
     const { image, title, price, category, description } = cart;
@@ -99,5 +99,5 @@ const Product = () => {
     );
 };
 
-export default Product;
+export default ShoppingBag;
 
