@@ -58,11 +58,7 @@ const Product = () => {
 
   const routeChange = () =>{
 
-
-    //product.quantity = textInput.current.value;
-
     let item = {...product, quantity: textInput.current.value}
-    //setProduct(item);
 
     dispatch(addSelectedProduct(item));
 

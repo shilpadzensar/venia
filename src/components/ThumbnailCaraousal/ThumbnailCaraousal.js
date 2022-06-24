@@ -44,10 +44,10 @@ const ThumbnailCaraousal = (props) => {
                     <img className="thumbnail" src={image} onClick={() => currentSlide(1)} alt="Product 1 img" />
                 </div>
                 <div className="thumbnail-caraousal-column">
-                    <img className="thumbnail" src={require('./images/2.jpg')} onClick={() => currentSlide(2)} alt="Product 2 img" />
+                    <img className="thumbnail" src={image} onClick={() => currentSlide(2)} alt="Product 2 img" />
                 </div>
                 <div className="thumbnail-caraousal-column">
-                    <img className="thumbnail" src={require('./images/3.jpg')} onClick={() => currentSlide(3)}  alt="Product 3 img" />
+                    <img className="thumbnail" src={image} onClick={() => currentSlide(3)}  alt="Product 3 img" />
                 </div>
                 <div className="thumbnail-caraousal-column">
                     <img className="thumbnail" src={image} onClick={() => currentSlide(4)}  alt="Product 4 img" />
@@ -68,11 +68,11 @@ const ThumbnailCaraousal = (props) => {
                 </div>
 
                 <div className="slide-image">
-                    <img src={require('./images/2.jpg')}  alt="big image"/>
+                    <img src={image}  alt="big image"/>
                 </div>
 
                 <div className="slide-image">
-                    <img src={require('./images/3.jpg')} alt="big image" />
+                    <img src={image} alt="big image" />
                 </div>
 
                 <div className="slide-image">

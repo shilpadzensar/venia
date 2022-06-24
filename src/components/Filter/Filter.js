@@ -7,22 +7,22 @@ const Filter = (props) => {
     return (
         <div className="filter-wrapper">
             <p>{props.title}</p>
-            {props.filterArray?.map((filter) => {
-                return (
-                    <ul>
+            <ul>
+                {props.filterArray?.map((filter) => {
+                    return (
                         <li>
                             <input type="checkbox" id={`option${filter.id}`} name={`option${filter.id}`} value={`option${filter.id}`} />
                             <label htmlFor={`option${filter.id}`}>{filter.name}</label>
                         </li>
-                    </ul>
-                );
-            })}
+                    );
+                })}
+            </ul>
 
             {props.show ?
                 <p className="border-line">
                     <a href="#">Show More</a>
                 </p> : ''
-             }
+            }
         </div>
 
     );

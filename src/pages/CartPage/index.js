@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ShoppingBag from './../../components/ShoppingBag/ShoppingBag';
-//import RecentHistory from './../../components/RecentHistory/RecentHistory';
+import RecentlyView from "./../../components/RecentlyView/RecentlyView";
 
 class CartPage extends Component {
 
@@ -12,7 +12,7 @@ class CartPage extends Component {
                 </section>
 
                 <section>
-                    {/* <RecentHistory /> */}
+                    <RecentlyView />
                 </section>
             </main>
         );

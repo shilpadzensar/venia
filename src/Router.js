@@ -4,6 +4,8 @@ import App from "./App";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
+import PageNotFound from './components/PageNotFound/PageNotFound';
+
 
 
 const Router = () => (
@@ -15,6 +17,8 @@ const Router = () => (
                 <Route path="/product/:productId" element={<ProductPage />} />
 
                 <Route path="/cart" element={<CartPage />} />
+
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
         </App>
     </BrowserRouter>

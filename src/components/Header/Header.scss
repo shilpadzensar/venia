@@ -49,6 +49,52 @@
             }
         }
 
+        .nav-links-xs {
+            position: absolute;
+            background-color: white;
+            top: 60px;
+            width: 93%;
+            background: var(--white) 0% 0% no-repeat padding-box;
+            box-shadow: 0px 8px 16px #00000026;
+
+            .header, .footer{
+                background: #FAFAFA 0% 0% no-repeat padding-box;
+                font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-20) var(--unnamed-font-family-muli);
+                letter-spacing: var(--unnamed-character-spacing-0);
+                color: var(--unnamed-color-172026);
+                border-bottom: 1px solid #DFE1E2;
+                display: flex;
+                justify-content: space-between;
+
+                p{
+                    padding: 16px 24px;
+                }
+                button{
+                    border: none;
+                    background: no-repeat;
+                }
+            }
+
+            ul {
+                list-style: none;
+                font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+                letter-spacing: var(--unnamed-character-spacing-0);
+                color: var(--unnamed-color-172026);
+                padding-left: 0;
+                margin-bottom: 160px;
+                padding: 0 24px;
+
+                li{
+                    padding: 16px 0;
+                    border-bottom: 1px solid #DFE1E2;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+        
         span {
             font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
             letter-spacing: var(--unnamed-character-spacing-0);
@@ -83,7 +129,6 @@
                     margin-right: 8px;
                 }
             }
-
            
             .nav-links {
                 display: block;
@@ -100,10 +145,17 @@
 
             }
 
-        }
+            .nav-links-xs {
+                display: none;
+            }           
 
+        }      
 
     }
+}
 
-
+hr{
+    margin-bottom: 33px;
+    border: 0;
+    border-top: 1px solid var(--gray-l1);
 }

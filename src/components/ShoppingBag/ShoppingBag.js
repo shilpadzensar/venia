@@ -5,7 +5,6 @@ import { selectedProduct } from "../../redux/actions/productsActions";
 import './ShoppingBag.scss';
 import Quantity from "./../Quantity/Quantity";
 import Accordion from "../Accordion/Accordion";
-import RecentlyView from "../RecentlyView/RecentlyView";
 
 import Edit from './images/edit-2.svg';
 import Trash from './images/trash-2.svg';
@@ -21,11 +20,9 @@ const ShoppingBag = () => {
 
     return (
         <div className="shopping-bag-wrapper">
-            <h1>Your Shopping Bag</h1>
+            <h1>Your Shopping Bag </h1>
             <div className="aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
                 <div className="left-col aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--1">
-                    {/* <cartList></cartList> */}
-
                     <section>
                         <div className="aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
                             <div className="prod-details aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--1">
@@ -92,7 +89,6 @@ const ShoppingBag = () => {
                 </div>
             </div>
 
-            <RecentlyView />
         </div>
 
 

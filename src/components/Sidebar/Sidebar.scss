@@ -1,11 +1,11 @@
 @import '../../styles/base/variable';
-@import '../../styles/base/desktop';
+@import '../../styles/base/mixins';
 
 .sidebar-wrapper {
     display: grid;
     grid-template-columns: 1f 2fr;
     margin-top: 15px;
-
+    
     h4 {
         font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-20)/14px var(--unnamed-font-family-muli);
         letter-spacing: var(--unnamed-character-spacing-0);
@@ -80,5 +80,12 @@
 
         }
 
+    }
+}
+
+
+@include desktop {    
+    .sidebar-wrapper {
+        padding-right: 10px;
     }
 }
