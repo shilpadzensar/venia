@@ -6,7 +6,7 @@ const Quantity = (props) => {
 
     let textInput = React.createRef();
 
-    let [num, setQuantity] = useState(0);
+    let [num, setQuantity] = useState(props.total);
 
     let increaseQuantity = () => {
         if (num < 10) {

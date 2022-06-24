@@ -10,7 +10,6 @@ import upArrow from './images/arrow-up.svg';
 import downArrow from './images/arrow-down.svg';
 
 
-
 const ProductList = () => {
     const products = useSelector((state) => state.product.products);
     const dispatch = useDispatch();

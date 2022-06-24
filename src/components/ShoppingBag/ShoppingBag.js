@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct } from "../../redux/actions/productsActions";
+import { addSelectedProduct } from "../../redux/actions/productsActions";
 import './ShoppingBag.scss';
 import Quantity from "./../Quantity/Quantity";
 import Accordion from "../Accordion/Accordion";
@@ -12,49 +12,55 @@ import Heart from './images/heart.svg';
 
 const ShoppingBag = () => {
 
-    let cart = useSelector((state) => state.cart);
-    const { image, title, price, category, description } = cart;
+    let cart = useSelector((state) => state.cart.cart);
 
-    const dispatch = useDispatch();
-    // dispatch(selectedProduct(response.data));
+    const renderList = cart.map((product) => {
+        let total = +(product.price*product.quantity);
+
+        return (
+            <section>
+                <div key={product.id} className="aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
+                    <div className="prod-details aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--1">
+                        <img src={product.image} alt={product.title}></img>
+                        <div>
+                            <h5>{product.title}</h5>
+                            <p>Size: Medium</p>
+                            <p>Color: Storm</p>
+                            <p>Price: {product.price}</p>
+                            <p>Total: {total}</p>
+                        </div>
+                    </div>
+
+                    <div className="prod-quantity aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--1">
+                        <section>
+                            <Quantity total={product.quantity} />
+                        </section>
+
+                        <ul className="show-lg">
+                            <li>
+                                <img src={Edit} className="" alt="edit" /> Edit item
+                            </li>
+                            <li>
+                                <img src={Trash} className="remove" alt="remove" /> Remove
+                            </li>
+                            <li>
+                                <img src={Heart} className="like" /> Save for later
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        );
+    });
 
     return (
+        cart.length == 0 ? <h1 className="no-record">No product in Cart</h1> :
+
         <div className="shopping-bag-wrapper">
             <h1>Your Shopping Bag </h1>
             <div className="aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
                 <div className="left-col aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--1">
-                    <section>
-                        <div className="aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
-                            <div className="prod-details aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--1">
-                                <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"></img>
-                                <div>
-                                    <h5>Electric Leggins</h5>
-                                    <p>Size: Medium</p>
-                                    <p>Color: Storm</p>
-                                    <p>$145.00</p>
-                                </div>
-                            </div>
-
-                            <div className="prod-quantity aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--1">
-                                <section>
-                                    <Quantity />
-                                </section>
-
-                                <ul className="show-lg">
-                                    <li>
-                                        <img src={Edit} className="" alt="edit" /> Edit item
-                                    </li>
-                                    <li>
-                                        <img src={Trash} className="remove" alt="remove" /> Remove
-                                    </li>
-                                    <li>
-                                        <img src={Heart} className="like" /> Save for later
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
+                   {renderList}
                     <Accordion />
 
                 </div>
@@ -87,11 +93,8 @@ const ShoppingBag = () => {
                         <button className="primary-paypal-btn"></button>
                     </section>
                 </div>
-            </div>
-
+            </div>            
         </div>
-
-
     );
 };
 

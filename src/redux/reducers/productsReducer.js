@@ -1,5 +1,5 @@
 import { ActionTypes } from "../constants/action-types";
-import {cloneDeep} from "lodash";
+import { cloneDeep } from "lodash";
 
 const intialState = {
   products: [],
@@ -13,13 +13,9 @@ const intialCartState = {
 
 const addProductToCart = (state, action) => {
   let products = cloneDeep(state.cart);
-  const itemInCart = products?.find(item => item.id === action.payload.id);
-  if (!itemInCart) {
-    products = [...products, action.payload];
-  } else {
-    // TODOL: UPDATE ITEM COUNT
-  }
-  return { ...state, cart:products };
+  products.push(action.payload)  
+  products = products.filter((v, i, a) => a.findIndex(o => (o.id === v.id)) === i)
+  return { ...state, cart: products };
 }
 
 

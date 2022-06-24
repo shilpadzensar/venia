@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {selectedProduct, removeSelectedProduct, addSelectedProduct } from "../../redux/actions/productsActions";
+import { selectedProduct, removeSelectedProduct, addSelectedProduct } from "../../redux/actions/productsActions";
 import './Product.scss';
 import ThumbnailCarousal from "./../ThumbnailCaraousal/ThumbnailCaraousal";
 
@@ -15,25 +15,16 @@ import icon4 from "./images/materials.png";
 
 const Product = () => {
   const { productId } = useParams();
-  let product = useSelector((state) => state.product.product);
+  // Fetch data from store
+  let products = useSelector((state) => state.product.products);
+
+  var product = products.find(obj => {
+    return obj.id == productId
+  })
   const { image, title, price, description } = product;
-  const dispatch = useDispatch();
-  const fetchProductDetail = async (id) => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${id}`)
-      .catch((err) => {
-        console.log("Err: ", err);
-      });
-    dispatch(selectedProduct(response.data));
-  };
 
-  useEffect(() => {
-    if (productId && productId !== "") fetchProductDetail(productId);    
-  }, [productId]);
-
- 
   //START Quantity Code
-  let [num, setQuantity] = useState(0);
+  let [num, setQuantity] = useState(1);
 
   let increaseQuantity = () => {
     if (num < 10) {
@@ -52,22 +43,20 @@ const Product = () => {
   }
   // END Quantity Code
 
-  
-  let navigate = useNavigate(); 
+
+  let navigate = useNavigate();
   let textInput = React.createRef();
+  const dispatch = useDispatch();
 
-  const routeChange = () =>{
+  const routeChange = () => {
 
-    let item = {...product, quantity: textInput.current.value}
+    let item = { ...product, quantity: num }
 
     dispatch(addSelectedProduct(item));
 
-
-    let path = `/cart`; 
+    let path = `/cart`;
     navigate(path);
   }
-
-
 
   return (
     <div>
@@ -156,6 +145,7 @@ const Product = () => {
         </div>
       </article>
     </div>
+
   );
 };
 

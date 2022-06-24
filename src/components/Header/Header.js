@@ -6,6 +6,7 @@ import Cart from './images/shopping-bag.svg';
 import Login from './images/user.svg';
 import Close from './images/close.png';
 import User from './images/user.svg';
+import {Link} from 'react-router-dom';
 
 import './Header.scss';
 
@@ -32,7 +33,7 @@ function Header() {
                         {navArr?.map((nav) => {
                             return (
                                 <li>
-                                    <a href={nav.link} alt="">{nav.name}</a>
+                                    <Link to={nav.link} alt="" >{nav.name}</Link>
                                 </li>
                             );
                         })}
