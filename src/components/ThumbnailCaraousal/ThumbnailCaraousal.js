@@ -63,7 +63,7 @@ const ThumbnailCaraousal = (props) => {
             </div>
 
             <div className="aem-GridColumn aem-GridColumn--default--10">
-                <div className="slide-image">                    
+                <div className="slide-image" style={{display:"block"}}>                    
                     <img src={image} alt="big image" />
                 </div>
 

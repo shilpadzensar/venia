@@ -21,11 +21,11 @@
     background-color: #FFFFFF;
     border-bottom: 1px solid #D1D3D6;
     border-radius: 2px;
-  }
-  
-  button.accordion:after {
+
+   &:after {
     background-image: url('./images/arrow-down-grey.svg');
     float: right;
+   }
   }
   
   

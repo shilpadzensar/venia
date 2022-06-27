@@ -1,21 +1,44 @@
-import React from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { addSelectedProduct } from "../../redux/actions/productsActions";
+import React,  {useEffect, useState} from "react";
+
+import { useSelector } from "react-redux";
+
 import './ShoppingBag.scss';
 import Quantity from "./../Quantity/Quantity";
 import Accordion from "../Accordion/Accordion";
+import {Link} from 'react-router-dom';
 
 import Edit from './images/edit-2.svg';
 import Trash from './images/trash-2.svg';
 import Heart from './images/heart.svg';
 
-const ShoppingBag = () => {
+const pricingTotal = (subTotal, coupan, giftcard, estimated)=> subTotal ? Math.round((subTotal - coupan - giftcard + estimated) * 100.0) / 100.0 : 0.00 ;
 
+const ShoppingBag = () => {
+    const [estimatedTotal , pricingSummary] = useState(0);  
+    const [subTotal , setSubTotal] = useState(0);
+    const [coupan , setCoupan] = useState(77.60);
+    const [giftcard , setGiftcard] = useState(100.00);
+    const [estimated , setEstimated] = useState(23.28);
+     
+ 
     let cart = useSelector((state) => state.cart.cart);
 
-    const renderList = cart.map((product) => {
-        let total = +(product.price*product.quantity);
+    useEffect(() => {
+      
+        if(cart.length){
+            let totalAmount = 0;
+            cart.forEach((product)=>{
+                totalAmount = totalAmount + (product.price*product.quantity);                
+            });
+            setSubTotal(totalAmount);
+            setCoupan( totalAmount > 150 ? coupan : 0);                     
+            pricingSummary(pricingTotal(totalAmount, coupan, giftcard, estimated ));
+        }
+      }, [cart]);
+
+
+    
+    const RenderList = (product) => {      
 
         return (
             <section>
@@ -27,7 +50,6 @@ const ShoppingBag = () => {
                             <p>Size: Medium</p>
                             <p>Color: Storm</p>
                             <p>Price: {product.price}</p>
-                            <p>Total: {total}</p>
                         </div>
                     </div>
 
@@ -38,7 +60,7 @@ const ShoppingBag = () => {
 
                         <ul className="show-lg">
                             <li>
-                                <img src={Edit} className="" alt="edit" /> Edit item
+                                <Link to={`/product/${product.id}`} ><img src={Edit} className="" alt="edit" /> Edit item </Link>
                             </li>
                             <li>
                                 <img src={Trash} className="remove" alt="remove" /> Remove
@@ -51,7 +73,8 @@ const ShoppingBag = () => {
                 </div>
             </section>
         );
-    });
+    };
+
 
     return (
         cart.length == 0 ? <h1 className="no-record">No product in Cart</h1> :
@@ -60,30 +83,30 @@ const ShoppingBag = () => {
             <h1>Your Shopping Bag </h1>
             <div className="aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
                 <div className="left-col aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--1">
-                   {renderList}
-                    <Accordion />
+                        {cart.map(RenderList)}
+                        <Accordion />
 
                 </div>
                 <div className="right-col aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--1">
                     <h5>Pricing Summary</h5>
                     <section className="summary">
                         <div className="title">Subtotal</div>
-                        <div className="amount">$388.00</div>
+                        <div className="amount">{subTotal && `$ ${subTotal}`}</div>
 
                         <div className="title">Coupon</div>
-                        <div className="amount">$77.60</div>
+                        <div className="amount">{coupan && `$ ${coupan}`}</div>
 
                         <div className="title">Gift Card</div>
-                        <div className="amount">$100.00</div>
+                        <div className="amount">{giftcard && `$ ${giftcard}`}</div>
 
                         <div className="title">Estimated Task</div>
-                        <div className="amount">$23.28</div>
+                        <div className="amount">{estimated && `$ ${estimated}`}</div>
 
                         <div className="title">Estimated Shipping</div>
                         <div className="amount">FREE</div>
 
                         <div className="title strong">Estimated total</div>
-                        <div className="amount strong">$233.68</div>
+                        <div className="amount strong">{estimatedTotal && `$ ${estimatedTotal}`}</div>
                     </section>
 
                     <section>
