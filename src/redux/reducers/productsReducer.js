@@ -19,6 +19,12 @@ const addProductToCart = (state, action) => {
 }
 
 
+const removeProductToCart = (state, action) => {
+  let products = cloneDeep(state.cart);
+  products = products.filter(item => item.id !== action.payload.id);
+  return { ...state, cart: products };
+}
+
 export const productsReducer = (state = intialState, action) => {
   switch (action.type) {
     case ActionTypes.SET_PRODUCTS:
@@ -36,7 +42,7 @@ export const cartProductsReducer = (state = intialCartState, action) => {
     case ActionTypes.ADD_SELECTED_PRODUCT:
       return addProductToCart(state, action);
     case ActionTypes.REMOVE_SELECTED_PRODUCT:
-      return {};
+      return removeProductToCart(state, action);
     default:
       return state;
   }

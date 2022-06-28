@@ -3,9 +3,9 @@
 
 
 .accordion-wrapper {
-    border: 1px solid #D1D3D6;
-    border-radius: 2px;
-    margin: 24px 0;
+  border: 1px solid #D1D3D6;
+  border-radius: 2px;
+  margin: 24px 0;
 
   button.accordion {
     width: 100%;
@@ -21,25 +21,32 @@
     background-color: #FFFFFF;
     border-bottom: 1px solid #D1D3D6;
     border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
 
-   &:after {
-    background-image: url('./images/arrow-down-grey.svg');
-    float: right;
-   }
+    p {
+      font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-21) var(--unnamed-font-family-muli);
+      letter-spacing: var(--unnamed-character-spacing-0);
+      color: var(--unnamed-color-172026);
+      padding-right: 5px;
+    }
   }
-  
-  
+
+
   .accordion-content {
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-21) var(--unnamed-font-family-muli);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-172026);
     background-color: white;
     border-left: 1px solid whitesmoke;
     border-right: 1px solid whitesmoke;
     padding: 0 20px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-in-out;
+    transition: max-height 0.2s ease-in-out;    
   }
 
-} 
+}
 
 
 @include desktop {

@@ -1,40 +1,46 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./Accordion.scss";
-//import downArrow from './images/arrow-down-grey.svg';
+
+import { ReactComponent as Uparrow} from './../../assets/images/chevron-down.svg';
 
 const Accordion = (props) => {
-    const accordionBtns = document.querySelectorAll(".accordion");
 
-    accordionBtns.forEach((accordion) => {
-        accordion.onclick = function () {
-            this.classList.toggle("is-open");
+    useEffect(() => {
+        const accordionBtns = document.querySelectorAll(".accordion");
 
-            let content = this.nextElementSibling;
+        accordionBtns.forEach((accordion) => {
+            accordion.onclick = function () {
+                this.classList.toggle("is-open");
 
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        };
-    });
+                let content = this.nextElementSibling;
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            };
+        });
+
+      }, [])
+
 
     return (
         <div className="accordion-wrapper">
 
-            <button className="accordion">Estimate your Shipping</button>
+            <button className="accordion">Estimate your Shipping <p>shipping to 91001 <Uparrow /></p></button>
             <div className="accordion-content">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.                </p>
             </div>
 
-            <button className="accordion">Enter a Coupon Code</button>
+            <button className="accordion">Enter a Coupon Code <p>20% discount applied<Uparrow /></p></button>
             <div className="accordion-content">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.                </p>
             </div>
 
-            <button className="accordion">Apply Gift Card</button>
+            <button className="accordion">Apply Gift Card <p><Uparrow /></p></button>
             <div className="accordion-content">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.                </p>

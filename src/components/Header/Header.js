@@ -32,7 +32,7 @@ function Header() {
                     <ul className="nav-links">
                         {navArr?.map((nav) => {
                             return (
-                                <li>
+                                <li key={nav.id}>
                                     <Link to={nav.link} alt="" >{nav.name}</Link>
                                 </li>
                             );

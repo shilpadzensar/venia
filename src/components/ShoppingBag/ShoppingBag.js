@@ -1,17 +1,18 @@
 import React,  {useEffect, useState} from "react";
-
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
 import './ShoppingBag.scss';
 import Quantity from "./../Quantity/Quantity";
 import Accordion from "../Accordion/Accordion";
 import {Link} from 'react-router-dom';
+import { removeSelectedProduct } from "../../redux/actions/productsActions";
+
 
 import Edit from './images/edit-2.svg';
 import Trash from './images/trash-2.svg';
 import Heart from './images/heart.svg';
 
 const pricingTotal = (subTotal, coupan, giftcard, estimated)=> subTotal ? Math.round((subTotal - coupan - giftcard + estimated) * 100.0) / 100.0 : 0.00 ;
+
 
 const ShoppingBag = () => {
     const [estimatedTotal , pricingSummary] = useState(0);  
@@ -23,6 +24,12 @@ const ShoppingBag = () => {
  
     let cart = useSelector((state) => state.cart.cart);
 
+    const removeCartItem = (id) => {
+        //const dispatch = useDispatch();
+        console.log('-----------------product.id', id);
+        //dispatch(removeSelectedProduct(id));
+    }
+    
     useEffect(() => {
       
         if(cart.length){
@@ -36,8 +43,7 @@ const ShoppingBag = () => {
         }
       }, [cart]);
 
-
-    
+   
     const RenderList = (product) => {      
 
         return (
@@ -63,7 +69,7 @@ const ShoppingBag = () => {
                                 <Link to={`/product/${product.id}`} ><img src={Edit} className="" alt="edit" /> Edit item </Link>
                             </li>
                             <li>
-                                <img src={Trash} className="remove" alt="remove" /> Remove
+                                <img src={Trash} className="remove" onClick={() => {removeCartItem(product.id);}} alt="remove" /> Remove
                             </li>
                             <li>
                                 <img src={Heart} className="like" /> Save for later
@@ -84,6 +90,7 @@ const ShoppingBag = () => {
             <div className="aem-Grid aem-Grid--default--12 aem-Grid--phone--1">
                 <div className="left-col aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--1">
                         {cart.map(RenderList)}
+
                         <Accordion />
 
                 </div>

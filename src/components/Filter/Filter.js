@@ -10,7 +10,7 @@ const Filter = (props) => {
             <ul>
                 {props.filterArray?.map((filter) => {
                     return (
-                        <li>
+                        <li key={filter.id}>
                             <input type="checkbox" id={`option${filter.id}`} name={`option${filter.id}`} value={`option${filter.id}`} />
                             <label htmlFor={`option${filter.id}`}>{filter.name}</label>
                         </li>

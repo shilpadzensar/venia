@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectedProduct, removeSelectedProduct, addSelectedProduct } from "../../redux/actions/productsActions";
+import { addSelectedProduct } from "../../redux/actions/productsActions";
 import './Product.scss';
 import ThumbnailCarousal from "./../ThumbnailCaraousal/ThumbnailCaraousal";
 
