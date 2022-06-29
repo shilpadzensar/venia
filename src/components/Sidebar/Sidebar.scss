@@ -10,8 +10,7 @@
         font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-20)/14px var(--unnamed-font-family-muli);
         letter-spacing: var(--unnamed-character-spacing-0);
         color: var(--gray-d2);
-        box-shadow: 0px 2px #f3efef;
-        ;
+        box-shadow: 0px 2px #D1D3D6;
         padding: 16px 0;
     }
 
@@ -87,5 +86,6 @@
 @include desktop {    
     .sidebar-wrapper {
         padding-right: 10px;
+        text-decoration: none;
     }
 }

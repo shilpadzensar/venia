@@ -21,7 +21,7 @@ const addProductToCart = (state, action) => {
 
 const removeProductToCart = (state, action) => {
   let products = cloneDeep(state.cart);
-  products = products.filter(item => item.id !== action.payload.id);
+  products = products.filter(item => item.id != action.payload);
   return { ...state, cart: products };
 }
 

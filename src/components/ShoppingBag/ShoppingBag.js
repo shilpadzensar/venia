@@ -21,13 +21,12 @@ const ShoppingBag = () => {
     const [giftcard , setGiftcard] = useState(100.00);
     const [estimated , setEstimated] = useState(23.28);
      
- 
+    const dispatch = useDispatch();
+
     let cart = useSelector((state) => state.cart.cart);
 
     const removeCartItem = (id) => {
-        //const dispatch = useDispatch();
-        console.log('-----------------product.id', id);
-        //dispatch(removeSelectedProduct(id));
+        dispatch(removeSelectedProduct(id));
     }
     
     useEffect(() => {
@@ -68,8 +67,8 @@ const ShoppingBag = () => {
                             <li>
                                 <Link to={`/product/${product.id}`} ><img src={Edit} className="" alt="edit" /> Edit item </Link>
                             </li>
-                            <li>
-                                <img src={Trash} className="remove" onClick={() => {removeCartItem(product.id);}} alt="remove" /> Remove
+                            <li onClick={() => removeCartItem(product.id)}>
+                                <img src={Trash} className="remove" alt="remove" /> Remove
                             </li>
                             <li>
                                 <img src={Heart} className="like" /> Save for later

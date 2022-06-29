@@ -60,6 +60,11 @@
 
                     a {
                         text-decoration: none;
+                        color: var(--unnamed-color-172026);
+                        &:hover{
+                            color: var(--unnamed-color-172026);
+                        }
+
                     }
 
                     img {
